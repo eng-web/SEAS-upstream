@@ -3,6 +3,7 @@
 /**
  * @file
  * template.php file for the engineering theme
+ * customize for your needs
  *
  */
 
