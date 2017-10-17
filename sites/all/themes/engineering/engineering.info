@@ -1,0 +1,40 @@
+name       = School of Engineering and Applied Science
+screenshot = screenshot.png
+package    = Core
+version    = VERSION
+core       = 7.x
+
+;---------- Features ----------
+
+;---------- Regions ----------
+
+regions_hidden[] = im_a_hidden_but_visibel_for_a_module
+
+regions[page_top] = Page Top
+regions[page_bottom] = Page Bottom
+
+regions[header] = Header
+
+regions[main_navigation] = Main Navigation
+regions[utility_navigation] = Utility Navigation
+regions[footer_navigation] = Footer Navigation
+
+regions[content_pre] = Content pre
+regions[content] = Content
+regions[content_post] = Content Post
+
+regions[associated_faculty] = Associated Faculty
+regions[associated_news] = Associated News
+regions[associated_events] = Associated Events
+regions[associated_departments] = Associated Departments
+regions[associated_centers] = Associated Centers
+
+regions[social_media] = Social Media
+
+regions[footer] = Footer
+
+;---------- CSS ----------
+stylesheets[all][] = css/style.css
+
+;---------- JS ----------
+scripts[] = js/main.js

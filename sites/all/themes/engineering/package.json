@@ -1,0 +1,42 @@
+{
+  "name": "engineering-drupal-template",
+  "version": "1.0.0",
+  "description": "Drupal template for the School of Engineering and Applied Science at Princeton University",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Princeton University",
+    "School of Engineering and Applied Science"
+  ],
+  "author": "School of Engineering and Applied Science Office of Communications",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neiladelantar/engineering-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neiladelantar/engineering-theme/issues"
+  },
+  "homepage": "https://github.com/neiladelantar/engineering-theme#readme"
+}
