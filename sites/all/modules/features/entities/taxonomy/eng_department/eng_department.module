@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Departments feature.
+ */
+
+include_once 'eng_department.features.inc';

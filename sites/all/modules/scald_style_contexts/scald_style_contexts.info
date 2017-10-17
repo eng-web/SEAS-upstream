@@ -1,0 +1,14 @@
+name = Scald Style Contexts
+description = "The created image styles will automatically create Scald contexts with that style as transcoder"
+package = Scald
+core = "7.x"
+
+dependencies[] = scald
+configure = admin/config/media/scald_style_context
+
+; Information added by Drupal.org packaging script on 2017-06-11
+version = "7.x-1.1"
+core = "7.x"
+project = "scald_style_contexts"
+datestamp = "1497179947"
+

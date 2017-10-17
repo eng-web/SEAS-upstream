@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Affiliated departments feature.
+ */
+
+include_once 'eng_affiliated_departments.features.inc';

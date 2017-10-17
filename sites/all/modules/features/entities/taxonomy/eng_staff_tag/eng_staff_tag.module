@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Staff tags feature.
+ */
+
+include_once 'eng_staff_tag.features.inc';

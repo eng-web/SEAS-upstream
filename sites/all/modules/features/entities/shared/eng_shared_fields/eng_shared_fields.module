@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Core fields feature.
+ */
+
+include_once 'eng_shared_fields.features.inc';

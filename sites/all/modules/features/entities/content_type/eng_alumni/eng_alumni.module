@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Alumni feature.
+ */
+
+include_once 'eng_alumni.features.inc';

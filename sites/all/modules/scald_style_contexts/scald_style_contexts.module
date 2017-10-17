@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * @file
+ * Makes image styles available as Scald contexts (representations).
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function scald_style_contexts_permission() {
+  return array(
+    'administer scald style contexts' => array(
+      'title' => t('Administer Scald Style Contexts'),
+      'description' => t('Perform administration tasks for Scald Style Contexts'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function scald_style_contexts_menu() {
+  $items['admin/config/media/scald_style_context'] = array(
+    'title' => 'Scald Style Contexts',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('scald_style_contexts_admin_form'),
+    'access arguments' => array('administer scald style contexts'),
+  );
+
+  return $items;
+}
+
+/**
+ * Settings form for defining which styles to create contexts for.
+ */
+function scald_style_contexts_admin_form($form, &$form_state) {
+  $form['description'] = array(
+    '#markup' => t('Scald contexts will be automatically created for the following image styles:'),
+  );
+  $styles = image_styles();
+  foreach ($styles as $name => $data) {
+    $form['scald_style_contexts_' . $name] = array(
+      '#type' => 'checkbox',
+      '#title' => $data['label'],
+      '#default_value' => variable_get('scald_style_contexts_' . $name, FALSE),
+    );
+  }
+  $form['#submit'][] = 'scald_style_contexts_admin_form_submit';
+
+  return system_settings_form($form);
+}
+
+/**
+ * Submit function for the admin form to clear cache.
+ */
+function scald_style_contexts_admin_form_submit($form, &$form_state) {
+  cache_clear_all('*', 'cache_scald', TRUE);
+}
+
+/**
+ * Implements hook_scald_contexts().
+ */
+function scald_style_contexts_scald_contexts() {
+  $contexts = array();
+
+  $styles = image_styles();
+  foreach ($styles as $name => $data) {
+    $status = variable_get('scald_style_contexts_' . $name, FALSE);
+    if (empty($status)) {
+      continue;
+    }
+    $contexts['generated_' . $name . '_representation'] = array(
+      'title'           => $name . ' ' . t('representation'),
+      'description'     => $name . ' ' . t('representation'),
+      'render_language' => 'XHTML',
+      'parseable'       => TRUE,
+      'formats'         => array('image' => array('jpg')),
+      'type_format'         => array('image' => array('transcoder' => 'style-' . $name)),
+    );
+    $context_config = scald_context_config_load('generated_' . $name . '_representation');
+    $context_config->transcoder['image']['*'] = 'style-' . $name;
+    scald_context_config_save($context_config);
+  }
+  return $contexts;
+}
+
+/**
+ * Implements hook_scald_render().
+ */
+function scald_style_contexts_scald_render($atom, $context, $options = array()) {
+  if (substr($context, 0, strpos($context, '_')) === 'generated') {
+    if (!empty($atom->rendered->thumbnail_transcoded_url)) {
+      $path = $atom->rendered->thumbnail_transcoded_url;
+    }
+    else {
+      $config = scald_context_config_load($context);
+      // Find out which transcoder is in use, and checks if it's
+      // one of the transcoder provided by Scald Image.
+      $style_name = NULL;
+      if ($transcoder = $config->transcoder[$atom->type]['*']) {
+        // Image style support.
+        if (preg_match('/^style-(.*)$/', $transcoder, $match)) {
+          $style_name = $match[1];
+        }
+      }
+      $preset = image_style_load($style_name);
+      $path = image_style_url($preset['name'], $atom->thumbnail_source);
+    }
+    if (empty($options['link'])) {
+      return theme('image', array('path' => $path, 'alt' => $atom->title));
+    }
+    else {
+      $link_options = array('html' => TRUE);
+      if (!empty($options['linkTarget'])) {
+        $link_options += array(
+          'attributes' => array(
+            'target' => $options['linkTarget'],
+          ),
+        );
+      }
+      return l(theme('image', array('path' => $path, 'alt' => $atom->title)), urldecode($options['link']), $link_options);
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TV displays and posters feature.
+ */
+
+include_once 'eng_tv_displays_and_posters.features.inc';

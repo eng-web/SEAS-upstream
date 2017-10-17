@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Affiliated centers feature.
+ */
+
+include_once 'eng_affiliated_centers.features.inc';

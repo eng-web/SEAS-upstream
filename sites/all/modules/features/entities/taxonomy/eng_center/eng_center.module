@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Centers feature.
+ */
+
+include_once 'eng_center.features.inc';

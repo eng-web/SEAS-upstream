@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Interdisciplinary research areas feature.
+ */
+
+include_once 'eng_interdisciplinary_research_areas.features.inc';

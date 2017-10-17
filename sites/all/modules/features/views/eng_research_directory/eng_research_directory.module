@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Research directory feature.
+ */
+
+include_once 'eng_research_directory.features.inc';

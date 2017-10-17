@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Impact feature.
+ */
+
+include_once 'eng_impact.features.inc';

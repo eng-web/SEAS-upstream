@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Interdisciplinary programs feature.
+ */
+
+include_once 'eng_programs.features.inc';

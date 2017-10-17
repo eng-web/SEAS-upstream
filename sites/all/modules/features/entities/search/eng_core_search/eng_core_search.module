@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Core search feature.
+ */
+
+include_once 'eng_core_search.features.inc';

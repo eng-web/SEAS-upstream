@@ -1,0 +1,16 @@
+name = Tags
+description = Tags for unique requirements
+core = 7.x
+package = Engineering entities
+version = 7.x-0.1
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = strongarm
+dependencies[] = taxonomy
+dependencies[] = uuid
+dependencies[] = uuid_features
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[taxonomy][] = tags
+features[uuid_term][] = f39b8107-b925-46cd-adf5-19feceb1fac4
+features[variable][] = pathauto_taxonomy_term_tags_pattern

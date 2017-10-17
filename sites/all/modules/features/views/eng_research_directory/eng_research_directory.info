@@ -1,0 +1,12 @@
+name = Research directory
+description = Research Directory view
+core = 7.x
+package = Engineering entities
+version = 7.x-0.4
+dependencies[] = better_exposed_filters
+dependencies[] = ctools
+dependencies[] = views
+dependencies[] = views_data_export
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = research_directory

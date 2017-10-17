@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Event departmental feed feature.
+ */
+
+include_once 'eng_event_departmental_feed.features.inc';

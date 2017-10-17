@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the News tags feature.
+ */
+
+include_once 'eng_news_tag.features.inc';

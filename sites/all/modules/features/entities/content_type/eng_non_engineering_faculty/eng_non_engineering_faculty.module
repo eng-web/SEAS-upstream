@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Non-engineering faculty feature.
+ */
+
+include_once 'eng_non_engineering_faculty.features.inc';

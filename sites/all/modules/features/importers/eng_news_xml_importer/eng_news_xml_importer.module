@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the News XML importer feature.
+ */
+
+include_once 'eng_news_xml_importer.features.inc';
